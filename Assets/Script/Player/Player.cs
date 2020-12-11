@@ -9,5 +9,10 @@ namespace BombShooting.Control
         [field : SerializeField]
         public ControlMap controlMap { get; private set; }
         public Vector2 face;
+
+        private void Start()
+        {
+            this.face = Vector2.right;
+        }
     }
 }

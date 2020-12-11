@@ -20,7 +20,8 @@ namespace BombShooting.Control
         private void Start()
         {
             var rb2d = GetComponent<Rigidbody2D>();
-            var controlMap = GetComponent<Player>().controlMap;
+            var player = GetComponent<Player>();
+            var controlMap = player.controlMap;
             Observable
                 .EveryUpdate()
                 .Select(_ => new []
@@ -32,13 +33,16 @@ namespace BombShooting.Control
                 })
                 .Subscribe(keyCodes =>
                 {
-                    rb2d.velocity = keyCodes
+                    var velocity = keyCodes
                         .Zip(
                             this.dirs,
                             (keyCode, dir) => dir * (Input.GetKey(keyCode) ? 1 : 0)
                         )
                         .Aggregate((x, y) => x + y)
                         .normalized * this.speed;
+                    rb2d.velocity = velocity;
+                    if(velocity != Vector2.zero)
+                        player.face = rb2d.velocity;
                 })
                 .AddTo(this);
         }
