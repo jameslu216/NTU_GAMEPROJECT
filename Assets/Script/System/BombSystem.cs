@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using BombShooting.Battle;
 using BombShooting.Control;
 using BombShooting.Utils;
 using UniRx;
@@ -23,9 +22,10 @@ namespace BombShooting.System
         void Start()
         {
             this.target = PlayerSystem.Instance.randomPlayer();
+            this.target.status.AddBomb();
             GameManager.Instance.remainTime
                 .Where(t => t == 0)
-                .Subscribe(t => GameManager.Instance.winTeam = 1)
+                .Subscribe(t => GameManager.Instance.loser = target.GetComponent<Team>())
                 .AddTo(this);
         }
 
