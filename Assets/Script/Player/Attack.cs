@@ -16,7 +16,11 @@ namespace BombShooting.Control
             var canShoot = true;
             Observable
                 .EveryUpdate()
-                .Where(_ => Input.GetKeyDown(player.controlMap.attack) && canShoot == true)
+                .Where(_ =>
+                    Input.GetKeyDown(player.controlMap.attack) &&
+                    canShoot == true &&
+                    player.status.canControl
+                )
                 .Subscribe(_ =>
                 {
                     this.gun.Shoot(player.face);

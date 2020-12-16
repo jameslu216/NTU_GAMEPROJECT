@@ -18,13 +18,11 @@ namespace BombShooting.Battle
 
         private void Awake()
         {
-            this.collisionCallbacks = new Dictionary<string, Action<GameObject>>()
-            { { "Player", this.OnPlayerCollision }, { "Wall", this.OnWallCollision },
-            };
             this.rb2d = GetComponent<Rigidbody2D>();
             Observable
                 .Timer(TimeSpan.FromSeconds(this.lifetime))
-                .Subscribe(_ => Destroy(gameObject));
+                .Subscribe(_ => Destroy(gameObject))
+                .AddTo(this);
         }
 
         public Vector2 velocity
@@ -40,12 +38,7 @@ namespace BombShooting.Battle
             p.OnDamage(this);
         }
 
-        private void OnWallCollision(GameObject wall)
-        {
-            Destroy(gameObject);
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if(other.gameObject.CompareTag("Player"))
             {

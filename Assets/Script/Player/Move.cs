@@ -22,6 +22,7 @@ namespace BombShooting.Control
             var controlMap = player.controlMap;
             Observable
                 .EveryUpdate()
+                .Where(_ => player.status.canControl)
                 .Select(_ => new []
                 {
                     controlMap.up,
