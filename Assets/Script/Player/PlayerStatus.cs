@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace BombShooting.Control
 {
+    [CreateAssetMenu(menuName = "Player/Status")]
     public class PlayerStatus : ScriptableObject
     {
         [SerializeField]
