@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 8115196832475001370}
   - component: {fileID: 8115196832475001371}
   - component: {fileID: 8115196832475001350}
+  - component: {fileID: 386592058196759270}
+  - component: {fileID: 1617242470451984819}
   m_Layer: 0
   m_Name: Solider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0bdd6ae4d65264a8a1a9a577ac72ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <status>k__BackingField: {fileID: 0}
   <controlMap>k__BackingField: {fileID: 11400000, guid: a42176fe9f6e2214d90e408f73509414,
     type: 2}
   face: {x: 0, y: 0}
@@ -113,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755229e48968c6a4eb3e0d362540b99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
 --- !u!114 &8115196832475001371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +150,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &386592058196759270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115196832475001372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6d299a2c1f82b4aa7e366757269018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <teamName>k__BackingField: team1
+--- !u!61 &1617242470451984819
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115196832475001372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6, y: 0.5}
+    newSize: {x: 0.6, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &8115196832710656417
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,5 +233,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 168230, guid: a1a80b76c4fba2641a7475de66cf9feb, type: 3}
-  bulletSpeed: 10
-  <cooldown>k__BackingField: 0.5
