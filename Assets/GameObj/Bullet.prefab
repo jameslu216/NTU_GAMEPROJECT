@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 456474}
   - component: {fileID: 21235022}
-  - component: {fileID: 11400690}
   - component: {fileID: 5837722}
   - component: {fileID: -6967530907723591617}
   - component: {fileID: 1337363847524252566}
@@ -85,20 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &11400690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1b873a6716b6948af456062c3bd5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletSpeed: 5
-  Team: 0
 --- !u!58 &5837722
 CircleCollider2D:
   m_ObjectHideFlags: 0

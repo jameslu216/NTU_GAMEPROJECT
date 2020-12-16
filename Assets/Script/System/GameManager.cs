@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using BombShooting.Utils;
 using UniRx;
 using UnityEngine;
 
 namespace BombShooting.System
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
-        [SerializeField]
-        private int remainTime;
-        public ReactiveProperty<long> remainTimeObservable { get; private set; } = new ReactiveProperty<long>();
-
-        void Start()
-        {
-            this.remainTimeObservable.Value = this.remainTime;
-        }
+        [field : SerializeField]
+        public LongReactiveProperty remainTime { get; private set; }
 
         public void StartGame()
         {
