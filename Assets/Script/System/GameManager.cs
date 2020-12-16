@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BombShooting.Utils;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BombShooting.System
 {
@@ -11,6 +12,9 @@ namespace BombShooting.System
     {
         [field : SerializeField]
         public LongReactiveProperty remainTime { get; private set; }
+        public UnityEvent OnGameStart;
+        public UnityEvent OnGameEnd;
+        public int winTeam = -1;
 
         public void StartGame()
         {
@@ -20,15 +24,17 @@ namespace BombShooting.System
                 .Select(t => this.remainTime.Value)
                 .TakeWhile(t => t > 0)
                 .Do(_ => this.remainTime.Value--)
-                .DoOnCompleted(() => this.endGame(-1))
+                .DoOnCompleted(() => this.EndGame(this.winTeam))
                 .Subscribe();
+            this.OnGameStart.Invoke();
         }
 
         // called when game end
         // pass -1 if fair
-        private void endGame(int winTeam)
+        public void EndGame(int winTeam)
         {
             Debug.Log("Game end!");
+            this.OnGameEnd.Invoke();
         }
     }
 }
