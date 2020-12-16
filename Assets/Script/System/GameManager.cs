@@ -8,13 +8,23 @@ namespace BombShooting.System
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField]
-        private int remainTime;
-        public ReactiveProperty<long> remainTimeObservable { get; private set; } = new ReactiveProperty<long>();
+        private static GameManager _instance;
+        public static GameManager Instance
+        {
+            get => _instance;
+        }
+
+        [field : SerializeField]
+        public LongReactiveProperty remainTime { get; private set; }
 
         void Start()
         {
-            this.remainTimeObservable.Value = this.remainTime;
+            if(_instance)
+            {
+                Debug.LogError("Duplicated game manager");
+                Destroy(this);
+            }
+            _instance = this;
         }
 
         public void StartGame()
@@ -22,9 +32,9 @@ namespace BombShooting.System
             Debug.Log("Game start!");
             Observable
                 .Timer(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(1))
-                .Select(t => this.remainTime - t)
+                .Select(_ => this.remainTime.Value)
                 .TakeWhile(t => t > 0)
-                .Do(_ => this.remainTimeObservable.Value--)
+                .Do(_ => this.remainTime.Value--)
                 .DoOnCompleted(() => this.endGame(-1))
                 .Subscribe();
         }
