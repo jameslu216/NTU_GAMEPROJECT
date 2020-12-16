@@ -17,9 +17,9 @@ namespace BombShooting.System
             Debug.Log("Game start!");
             Observable
                 .Timer(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(1))
-                .Select(t => this.remainTime - t)
+                .Select(t => this.remainTime.Value)
                 .TakeWhile(t => t > 0)
-                .Do(_ => this.remainTimeObservable.Value--)
+                .Do(_ => this.remainTime.Value--)
                 .DoOnCompleted(() => this.endGame(-1))
                 .Subscribe();
         }
