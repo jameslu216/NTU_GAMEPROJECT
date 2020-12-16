@@ -11,14 +11,14 @@ namespace BombShooting.Control
         [SerializeField]
         private float moveSpeed;
         [SerializeField]
-        private float shootSpeed;
+        private float shootCooldown;
         [SerializeField]
         private float bulletSpeed;
         private bool hasBomb;
         private bool canControl;
 
         public float MoveSpeed => this.moveSpeed * (this.hasBomb ? 1 : BombSystem.Instance.MoveSpeedBuff);
-        public float ShootSpeed => this.shootSpeed * (this.hasBomb ? 1 : BombSystem.Instance.ShootSpeedBuff);
+        public float ShootCooldown => this.shootCooldown / Mathf.Max(Mathf.Epsilon, (this.hasBomb ? 1 : BombSystem.Instance.ShootSpeedBuff));
         public float BulletSpeed => this.bulletSpeed * (this.hasBomb ? 1 : BombSystem.Instance.BulletSpeedBuff);
 
         public void AddBomb() => this.hasBomb = true;

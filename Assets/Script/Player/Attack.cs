@@ -13,17 +13,17 @@ namespace BombShooting.Control
         private void Start()
         {
             var player = GetComponent<Player>();
-            var controlMap = player.controlMap;
             var canShoot = true;
             Observable
                 .EveryUpdate()
-                .Where(_ => Input.GetKeyDown(controlMap.attack) && canShoot == true)
+                .Where(_ => Input.GetKeyDown(player.controlMap.attack) && canShoot == true)
                 .Subscribe(_ =>
                 {
                     this.gun.Shoot(player.face);
                     canShoot = false;
+                    // disable shoot for a while
                     Observable
-                        .Timer(TimeSpan.FromSeconds(this.gun.cooldown))
+                        .Timer(TimeSpan.FromSeconds(player.status.ShootCooldown))
                         .Subscribe(__ => canShoot = true);
                 })
                 .AddTo(this);
