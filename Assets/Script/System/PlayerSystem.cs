@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class PlayerSystem : Singleton<PlayerSystem>
 {
-    [SerializeField]
-    private List<Player> players = new List<Player>();
-    public IEnumerable<Player> Players
+    private List<Player> players;
+    public IEnumerable<Player> Players => this.players.AsReadOnly();
+
+    private void Start()
     {
-        get => this.players.AsReadOnly();
+        this.players = new List<Player>(GameObject.FindObjectsOfType<Player>());
     }
 
     public Player randomPlayer()
