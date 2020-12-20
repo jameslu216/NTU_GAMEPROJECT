@@ -36,7 +36,6 @@ namespace BombShooting.Control
             this.status.hasBomb
                 .Subscribe(bomb =>
                 {
-                    Debug.Log(gameObject.name + " got a bomb? " + bomb);
                     sr.DOColor(
                         bomb ? Color.red : originalColor,
                         0.5f
