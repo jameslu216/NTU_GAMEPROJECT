@@ -21,8 +21,9 @@ namespace BombShooting.Battle
             var newBullet = Instantiate(
                 this.bullet,
                 transform.position,
-                Quaternion.Euler((Vector3) dir)
+                Quaternion.identity
             ).GetComponent<Bullet>();
+            newBullet.transform.right = dir;
             newBullet.velocity = dir.normalized * owner.status.BulletSpeed;
             newBullet.team = this.team;
         }
