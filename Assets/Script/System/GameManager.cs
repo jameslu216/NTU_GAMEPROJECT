@@ -17,6 +17,11 @@ namespace BombShooting.System
         public UnityEvent OnGameEnd;
         public Team loser;
 
+        private void Start()
+        {
+            this.StartGame();
+        }
+
         public void StartGame()
         {
             Debug.Log("Game start!");

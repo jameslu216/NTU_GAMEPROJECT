@@ -34,6 +34,7 @@ namespace BombShooting.System
             if(this.target == newTarget)
             {
                 Debug.Log("The same player got the bomb!");
+                this.target.status.AddBomb();
                 return;
             }
             this.target.status.RemoveBomb();

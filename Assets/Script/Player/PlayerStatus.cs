@@ -24,20 +24,24 @@ namespace BombShooting.Control
 
         public void AddBomb()
         {
+            if(!this.canControl)
+                return;
             this.hasBomb.Value = true;
             this.canControl = false;
             // release previous stream if exist
             this.controlRecover?.Dispose();
             this.controlRecover = Observable
                 .Timer(TimeSpan.FromSeconds(3))
+                .DoOnCompleted(() => Debug.Log("you are free now!"))
                 .Subscribe(_ => this.canControl = true);
         }
         public void RemoveBomb() => this.hasBomb.Value = false;
 
-        private void Awake()
+        private void OnEnable()
         {
             this.canControl = true;
             this.hasBomb = new BoolReactiveProperty(false);
         }
+
     }
 }

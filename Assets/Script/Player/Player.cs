@@ -22,7 +22,12 @@ namespace BombShooting.Control
             this.face
                 .Subscribe(dir =>
                 {
-                    transform.right = dir;
+                    DOTween.To(
+                        () => transform.right,
+                        v => transform.right = v,
+                        (Vector3) dir,
+                        0.3f
+                    );
                 })
                 .AddTo(this);
             var sr = GetComponent<SpriteRenderer>();
@@ -30,11 +35,13 @@ namespace BombShooting.Control
             var originalColor = Color.black.Copy(sr.color);
             this.status.hasBomb
                 .Subscribe(bomb =>
+                {
+                    Debug.Log(gameObject.name + " got a bomb? " + bomb);
                     sr.DOColor(
-                        bomb ? Color.gray : originalColor,
+                        bomb ? Color.red : originalColor,
                         0.5f
-                    )
-                )
+                    );
+                })
                 .AddTo(this);
         }
 

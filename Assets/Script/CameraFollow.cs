@@ -12,6 +12,9 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
+        var newPosition = target.position;
+        newPosition.z = -10;
+        transform.position = newPosition;
         transform
             .Follow(
                 target,
