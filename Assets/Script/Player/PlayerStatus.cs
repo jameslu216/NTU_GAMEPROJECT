@@ -14,17 +14,17 @@ namespace BombShooting.Control
         private float shootCooldown;
         [SerializeField]
         private float bulletSpeed;
-        private bool hasBomb;
+        public BoolReactiveProperty hasBomb { get; private set; }
         public bool canControl { get; private set; }
         private IDisposable controlRecover;
 
-        public float MoveSpeed => this.moveSpeed * (this.hasBomb ? 1 : BombSystem.Instance.MoveSpeedBuff);
-        public float ShootCooldown => this.shootCooldown / Mathf.Max(Mathf.Epsilon, (this.hasBomb ? 1 : BombSystem.Instance.ShootSpeedBuff));
-        public float BulletSpeed => this.bulletSpeed * (this.hasBomb ? 1 : BombSystem.Instance.BulletSpeedBuff);
+        public float MoveSpeed => this.moveSpeed * (this.hasBomb.Value ? 1 : BombSystem.Instance.MoveSpeedBuff);
+        public float ShootCooldown => this.shootCooldown / Mathf.Max(Mathf.Epsilon, (this.hasBomb.Value ? 1 : BombSystem.Instance.ShootSpeedBuff));
+        public float BulletSpeed => this.bulletSpeed * (this.hasBomb.Value ? 1 : BombSystem.Instance.BulletSpeedBuff);
 
         public void AddBomb()
         {
-            this.hasBomb = true;
+            this.hasBomb.Value = true;
             this.canControl = false;
             // release previous stream if exist
             this.controlRecover?.Dispose();
@@ -32,12 +32,12 @@ namespace BombShooting.Control
                 .Timer(TimeSpan.FromSeconds(3))
                 .Subscribe(_ => this.canControl = true);
         }
-        public void RemoveBomb() => this.hasBomb = false;
+        public void RemoveBomb() => this.hasBomb.Value = false;
 
         private void Awake()
         {
             this.canControl = true;
-            this.hasBomb = false;
+            this.hasBomb = new BoolReactiveProperty(false);
         }
     }
 }
