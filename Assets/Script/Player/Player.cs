@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using BombShooting.Battle;
+﻿using BombShooting.Battle;
 using BombShooting.System;
+using UniRx;
 using UnityEngine;
 
 namespace BombShooting.Control
@@ -13,11 +12,15 @@ namespace BombShooting.Control
 
         [field : SerializeField]
         public ControlMap controlMap { get; private set; }
-        public Vector2 face;
+        public Vector2ReactiveProperty face;
 
         private void Start()
         {
-            this.face = Vector2.right;
+            this.face.Value = Vector2.right;
+            this.face.Subscribe(dir =>
+            {
+                transform.right = dir;
+            });
         }
 
         public void OnDamage(Bullet bullet)

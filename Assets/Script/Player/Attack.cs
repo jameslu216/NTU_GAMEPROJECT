@@ -23,7 +23,7 @@ namespace BombShooting.Control
                 )
                 .Subscribe(_ =>
                 {
-                    this.gun.Shoot(player.face);
+                    this.gun.Shoot(player.face.Value);
                     canShoot = false;
                     // disable shoot for a while
                     Observable

@@ -41,7 +41,7 @@ namespace BombShooting.Control
                         .normalized * player.status.MoveSpeed;
                     rb2d.velocity = velocity;
                     if(velocity != Vector2.zero)
-                        player.face = rb2d.velocity;
+                        player.face.Value = rb2d.velocity;
                 })
                 .AddTo(this);
         }

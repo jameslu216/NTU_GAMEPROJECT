@@ -74,15 +74,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1076892057
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 435258024fa578249aa5aee94ed40678, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8f6aa1b972b2b04cbb0544fe033ce27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6, y: 0.5}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,10 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0bdd6ae4d65264a8a1a9a577ac72ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <status>k__BackingField: {fileID: 0}
+  <status>k__BackingField: {fileID: 11400000, guid: 3e51a46e020472e469b00c351a263ba8,
+    type: 2}
   <controlMap>k__BackingField: {fileID: 11400000, guid: a42176fe9f6e2214d90e408f73509414,
     type: 2}
-  face: {x: 0, y: 0}
+  face:
+    value: {x: 0, y: 0}
 --- !u!114 &8115196832475001370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,18 +178,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.018710315, y: 0.000000044703484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.5}
-    newSize: {x: 0.6, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.5}
+  m_Size: {x: 0.93678534, y: 0.79194534}
   m_EdgeRadius: 0
 --- !u!1 &8115196832710656417
 GameObject:

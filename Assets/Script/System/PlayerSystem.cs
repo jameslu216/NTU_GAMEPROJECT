@@ -17,6 +17,6 @@ public class PlayerSystem : Singleton<PlayerSystem>
     {
         if(this.players.Count == 0)
             return null;
-        return this.players[Random.Range(0, this.players.Count - 1)];
+        return this.players[Random.Range(0, this.players.Count)];
     }
 }
