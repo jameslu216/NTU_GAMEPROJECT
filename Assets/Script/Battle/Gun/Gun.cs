@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using BombShooting.Control;
 using UnityEngine;
 
 namespace BombShooting.Battle
@@ -8,10 +7,14 @@ namespace BombShooting.Battle
     {
         [SerializeField]
         private GameObject bullet;
-        [SerializeField]
-        private float bulletSpeed;
-        [field : SerializeField]
-        public float cooldown { get; private set; }
+        private Player owner;
+        private Team team;
+
+        private void Start()
+        {
+            this.owner = GetComponentInParent<Player>();
+            this.team = this.owner.gameObject.GetComponent<Team>();
+        }
 
         public void Shoot(Vector2 dir)
         {
@@ -20,7 +23,8 @@ namespace BombShooting.Battle
                 transform.position,
                 Quaternion.Euler((Vector3) dir)
             ).GetComponent<Bullet>();
-            newBullet.velocity = dir.normalized * this.bulletSpeed;
+            newBullet.velocity = dir.normalized * owner.status.BulletSpeed;
+            newBullet.team = this.team;
         }
     }
 }

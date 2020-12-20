@@ -7,8 +7,6 @@ namespace BombShooting.Control
     [RequireComponent(typeof(Rigidbody2D))]
     public class Move : MonoBehaviour
     {
-        [SerializeField]
-        private float speed;
         private Vector2[] dirs = new []
         {
             Vector2.up,
@@ -24,6 +22,7 @@ namespace BombShooting.Control
             var controlMap = player.controlMap;
             Observable
                 .EveryUpdate()
+                .Where(_ => player.status.canControl)
                 .Select(_ => new []
                 {
                     controlMap.up,
@@ -39,7 +38,7 @@ namespace BombShooting.Control
                             (keyCode, dir) => dir * (Input.GetKey(keyCode) ? 1 : 0)
                         )
                         .Aggregate((x, y) => x + y)
-                        .normalized * this.speed;
+                        .normalized * player.status.MoveSpeed;
                     rb2d.velocity = velocity;
                     if(velocity != Vector2.zero)
                         player.face = rb2d.velocity;
