@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1571735514865033008}
   - component: {fileID: 1571735514865032975}
   - component: {fileID: 1571735514865032974}
+  - component: {fileID: 1853623927}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -66,9 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e81fffc6f291f4d8d8d861cdf44fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1571735514865032974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +82,16 @@ MonoBehaviour:
   <MoveSpeedBuff>k__BackingField: 1
   <BulletSpeedBuff>k__BackingField: 1
   <ShootSpeedBuff>k__BackingField: 1
+--- !u!114 &1853623927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571735514865033011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce82340813b0a274abbdd77616b699c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneClipArray: {fileID: 11400000, guid: c3c5d437af86f07409897c6a436d273a, type: 2}

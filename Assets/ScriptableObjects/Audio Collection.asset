@@ -16,15 +16,15 @@ MonoBehaviour:
   - name: rock52
     clip: {fileID: 8300000, guid: bea9feb0e87681a4eb1f2efc8e033223, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     loop: 1
   - name: rock55
     clip: {fileID: 8300000, guid: 7b50b03dcfea97a4babb9162862ebe24, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     loop: 1
   - name: shoot
     clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
-    volume: 0.5
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
