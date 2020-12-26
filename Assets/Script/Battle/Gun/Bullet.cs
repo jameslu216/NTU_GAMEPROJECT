@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using BombShooting.Control;
+using BombShooting.System;
 using UniRx;
 using UnityEngine;
 
@@ -12,9 +12,17 @@ namespace BombShooting.Battle
     {
         [SerializeField]
         private float lifetime;
+        [SerializeField]
+        private GameObject explosion;
         private Rigidbody2D rb2d;
         private Dictionary<string, Action<GameObject>> collisionCallbacks;
         public Team team;
+
+        public Vector2 velocity
+        {
+            get => this.rb2d.velocity;
+            set => this.rb2d.velocity = value;
+        }
 
         private void Awake()
         {
@@ -23,12 +31,6 @@ namespace BombShooting.Battle
                 .Timer(TimeSpan.FromSeconds(this.lifetime))
                 .Subscribe(_ => Destroy(gameObject))
                 .AddTo(this);
-        }
-
-        public Vector2 velocity
-        {
-            get => this.rb2d.velocity;
-            set => this.rb2d.velocity = value;
         }
 
         private void OnPlayerCollision(GameObject player)
@@ -46,6 +48,8 @@ namespace BombShooting.Battle
                     return;
                 this.OnPlayerCollision(other.gameObject);
             }
+            AudioManager.Instance.PlayByName("shoot");
+            Instantiate(this.explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

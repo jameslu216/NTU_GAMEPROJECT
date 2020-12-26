@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
+  explosion: {fileID: 6732902084339375104, guid: 00067a7bc5d85d144bc2916e1d96a3a2,
+    type: 3}
   team: {fileID: 0}
 --- !u!61 &1260611330273965383
 BoxCollider2D:
