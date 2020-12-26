@@ -1,17 +1,21 @@
 ﻿using BombShooting.System;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace BombShooting.UI
 {
-    [RequireComponent(typeof(Text))]
     public class Countdown : MonoBehaviour
     {
         private void Start()
         {
-            Text text = GetComponent<Text>();
-            GameManager.Instance.remainTime.SubscribeToText(text);
+            TMP_Text text = GetComponent<TMP_Text>();
+            GameManager.Instance.remainTime
+                .Subscribe(str =>
+                {
+                    text.text = str.ToString();
+                });
         }
     }
 }

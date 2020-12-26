@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 93d9b20f33c864b44a035ca98d3e76cf
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Anonymous Pro Minus
+  fontNames:
+  - Anonymous Pro Minus
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23e250a7a4f0fc04b96c745ad4b063fa, type: 3}
+  - {fileID: 12800000, guid: 3341d2ec957e819499069fa066078883, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

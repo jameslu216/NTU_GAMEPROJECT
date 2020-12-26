@@ -20,6 +20,8 @@ namespace BombShooting.Utils
             }
         }
 
+        protected virtual bool shouldDestroy() => false;
+
         private void Awake()
         {
             if(Instance != this)
@@ -28,7 +30,8 @@ namespace BombShooting.Utils
                 Destroy(this);
                 return;
             }
-            DontDestroyOnLoad(gameObject);
+            if(!this.shouldDestroy())
+                DontDestroyOnLoad(gameObject);
         }
     }
 }

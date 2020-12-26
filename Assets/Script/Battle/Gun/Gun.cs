@@ -1,4 +1,5 @@
 ﻿using BombShooting.Control;
+using BombShooting.System;
 using UnityEngine;
 
 namespace BombShooting.Battle
@@ -26,6 +27,7 @@ namespace BombShooting.Battle
             newBullet.transform.right = dir;
             newBullet.velocity = dir.normalized * owner.status.BulletSpeed;
             newBullet.team = this.team;
+            AudioManager.Instance.PlayByName("shoot");
         }
     }
 }

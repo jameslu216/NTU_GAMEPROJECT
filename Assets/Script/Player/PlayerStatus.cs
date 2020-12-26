@@ -32,7 +32,6 @@ namespace BombShooting.Control
             this.controlRecover?.Dispose();
             this.controlRecover = Observable
                 .Timer(TimeSpan.FromSeconds(3))
-                .DoOnCompleted(() => Debug.Log("you are free now!"))
                 .Subscribe(_ => this.canControl = true);
         }
         public void RemoveBomb() => this.hasBomb.Value = false;

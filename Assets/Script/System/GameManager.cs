@@ -19,6 +19,7 @@ namespace BombShooting.System
 
         private void Start()
         {
+            AudioManager.Instance.PlayByName("rock55");
             this.StartGame();
         }
 
