@@ -13,33 +13,24 @@ namespace BombShooting.Control
 
         private void updateDirection(Vector3 newDirection)
         {
-            // DOTween.To(
-            //     () => transform.right,
-            //     d => transform.right = d,
-            //     newDirection,
-            //     0.1f
-            // );
-            transform.right = newDirection;
+            DOTween.To(
+                () => transform.right,
+                d => transform.right = d,
+                newDirection,
+                0.1f
+            );
         }
 
         private void Start()
         {
             var self = transform;
             target
-                .ObserveEveryValueChanged(t => t.position)
-                .Subscribe(pos =>
-                {
-
-                    this.updateDirection(pos - self.position);
-                })
+                .ObserveEveryValueChanged(t => t.position - self.position)
+                .Subscribe(this.updateDirection)
                 .AddTo(this);
             self
-                .ObserveEveryValueChanged(t => t.position)
-                .Subscribe(pos =>
-                {
-                    // Debug.Log($"{gameObject.name}: {target.position} / {pos}");
-                    this.updateDirection(target.position - pos);
-                })
+                .ObserveEveryValueChanged(t => target.position - t.position)
+                .Subscribe(this.updateDirection)
                 .AddTo(this);
         }
     }

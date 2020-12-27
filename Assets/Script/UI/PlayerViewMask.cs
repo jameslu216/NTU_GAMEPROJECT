@@ -18,7 +18,7 @@ namespace BombShooting.UI
                 .Subscribe(scalar =>
                     rect
                     .DOScale(Vector3.one * scalar, 1)
-                    .SetEase(Ease.InOutBounce)
+                    .SetEase(Ease.OutCubic)
                 )
                 .AddTo(this);
         }
