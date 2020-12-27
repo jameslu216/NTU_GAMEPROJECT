@@ -9,8 +9,12 @@ namespace BombShooting.System
     public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField]
-        private AudioClipArray sceneClipArray = null; // 儲存音檔資訊的 list
-        private Dictionary<string, AudioSource> name2Audio = new Dictionary<string, AudioSource>(); // 名稱對應到音檔的Dictionary
+        // 儲存音檔資訊的 list
+        private AudioClipArray sceneClipArray = null;
+        [SerializeField]
+        private bool destroyOnLoad;
+        // 名稱對應到音檔的Dictionary
+        private Dictionary<string, AudioSource> name2Audio = new Dictionary<string, AudioSource>();
 
         private void Start()
         {
@@ -33,7 +37,7 @@ namespace BombShooting.System
             }
         }
 
-        protected override bool shouldDestroy() => true;
+        protected override bool shouldDestroy() => this.destroyOnLoad;
 
         private AudioSource requireAudio(string name)
         {
