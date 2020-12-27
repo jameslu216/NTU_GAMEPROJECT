@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using BombShooting.Battle;
 using BombShooting.Utils;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace BombShooting.System
 {
@@ -40,6 +39,7 @@ namespace BombShooting.System
         {
             Debug.Log("Game end!");
             this.OnGameEnd.Invoke();
+            SceneManager.LoadScene("End");
         }
     }
 }

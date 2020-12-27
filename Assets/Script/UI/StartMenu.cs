@@ -21,7 +21,7 @@ namespace BombShooting.UI
                     .DOColor(Color.black, 0.3f)
                     .OnComplete(() => SceneManager.LoadScene("GameScene 1"));
             });
-            this.exit.onClick.AddListener(() => Application.Quit());
+            this.exit.onClick.AddListener(Application.Quit);
         }
     }
 }

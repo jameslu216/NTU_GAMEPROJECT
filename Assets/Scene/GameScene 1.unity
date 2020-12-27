@@ -441,6 +441,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1853623927, guid: 6c1e8e08231a7e044bbf08db2e5e18bd, type: 3}
+      propertyPath: destroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1571735514865032975, guid: 6c1e8e08231a7e044bbf08db2e5e18bd,
         type: 3}
       propertyPath: players.Array.data[0]
