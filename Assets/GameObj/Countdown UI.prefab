@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 5107330165513297921}
   - component: {fileID: 5107330165513297922}
   - component: {fileID: 5107330165513297923}
-  - component: {fileID: 5107330165513297920}
   m_Layer: 5
   m_Name: Countdown Text
   m_TagString: Untagged
@@ -210,18 +209,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5107330165513297920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5107330165513297926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8016f2430f5207d4094188ee8295fbfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5107330166179846447
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5107330166179846446}
+  - component: {fileID: 6999288769759685946}
   m_Layer: 5
   m_Name: Countdown UI
   m_TagString: Untagged
@@ -259,3 +247,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6999288769759685946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107330166179846447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8016f2430f5207d4094188ee8295fbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warning: {r: 0.8679245, g: 0.25792095, b: 0.25792095, a: 1}
