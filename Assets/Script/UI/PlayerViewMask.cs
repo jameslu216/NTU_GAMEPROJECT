@@ -14,7 +14,7 @@ namespace BombShooting.UI
         {
             var rect = GetComponent<RectTransform>();
             this.status.hasBomb
-                .Select(bomb => bomb ? 2 : 1)
+                .Select(bomb => bomb ? 1.5f : 1)
                 .Subscribe(scalar =>
                     rect
                     .DOScale(Vector3.one * scalar, 1)
