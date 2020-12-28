@@ -522,6 +522,11 @@ PrefabInstance:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 342430980}
+    - target: {fileID: 1571735514865033008, guid: 6c1e8e08231a7e044bbf08db2e5e18bd,
+        type: 3}
+      propertyPath: <remainTime>k__BackingField.value
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1571735514865033009, guid: 6c1e8e08231a7e044bbf08db2e5e18bd,
         type: 3}
       propertyPath: m_LocalPosition.x

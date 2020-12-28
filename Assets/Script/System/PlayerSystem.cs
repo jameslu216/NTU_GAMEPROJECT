@@ -14,6 +14,7 @@ namespace BombShooting.System
         private void Start()
         {
             this.players = new List<Player>(GameObject.FindObjectsOfType<Player>());
+            this.players.ForEach(p => p.status.Reset());
         }
 
         public Player randomPlayer()
