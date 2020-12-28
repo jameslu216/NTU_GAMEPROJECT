@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using BombShooting.System;
+using UniRx;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class RandomFloor : MonoBehaviour
@@ -14,13 +16,19 @@ public class RandomFloor : MonoBehaviour
     public int posY = 32;
     public int blocknum = 10;
 
-    private void Update()
+    private void Start()
     {
-        tilemap.ClearAllTiles();
+        var initVal = GameManager.Instance.remainTime.Value;
+        GameManager.Instance.remainTime
+            .Select(t => initVal - t)
+            .Where(t => t % 5 == 0)
+            .Subscribe(t => this.generateBlocks())
+            .AddTo(this);
     }
 
     private void generateBlocks()
     {
+        tilemap.ClearAllTiles();
         int i = 0, x, y;
         while(i < blocknum)
         {

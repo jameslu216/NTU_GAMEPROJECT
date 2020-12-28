@@ -479,6 +479,11 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.48
       objectReference: {fileID: 0}
+    - target: {fileID: 8683084601818908157, guid: 4008b5455bdf9496298e47af304780d4,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7828569888701846903, guid: 4008b5455bdf9496298e47af304780d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4008b5455bdf9496298e47af304780d4, type: 3}
@@ -601,6 +606,11 @@ PrefabInstance:
       propertyPath: followTransform
       value: 
       objectReference: {fileID: 342430982}
+    - target: {fileID: 6524774991028310060, guid: bc04d27116c444e65b12ae90bf9ac4c9,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7589999573723244366, guid: bc04d27116c444e65b12ae90bf9ac4c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -725,11 +735,11 @@ MonoBehaviour:
   cannotWalkMap: {fileID: 1973607891}
   Block: {fileID: 11400000, guid: 3d72f992c30a648bfa6fabbc00c7de13, type: 2}
   unWalkableTile: {fileID: 11400000, guid: 330ddce602a53402ab7c6b806a402a04, type: 2}
-  negX: 0
-  posX: 0
-  negY: 0
-  posY: 0
-  blocknum: 10
+  negX: -33
+  posX: 32
+  negY: -33
+  posY: 32
+  blocknum: 30
 --- !u!483693784 &1313647570
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -748,7 +758,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -766,8 +776,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1643609565
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
