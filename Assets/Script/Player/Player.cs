@@ -18,16 +18,19 @@ namespace BombShooting.Control
 
         private void Start()
         {
+            Tween tween = null;
             this.face.Value = Vector2.right;
             this.face
-                .Subscribe(dir =>
+                .Select(dir => Vector3.SignedAngle(Vector2.right, dir, Vector3.forward))
+                .Subscribe(deg =>
                 {
-                    DOTween.To(
-                        () => transform.right,
-                        v => transform.right = v,
-                        (Vector3) dir,
-                        0.3f
-                    );
+                    tween?.Complete();
+                    tween = transform
+                        .DORotate(
+                            Quaternion.Euler(0, 0, deg).eulerAngles,
+                            Mathf.Lerp(0.3f, 0.7f, (deg - Quaternion.Euler(transform.right).z) / 180)
+                        )
+                        .SetEase(Ease.OutQuad);
                 })
                 .AddTo(this);
             var sr = GetComponent<SpriteRenderer>();
@@ -44,9 +47,6 @@ namespace BombShooting.Control
                 .AddTo(this);
         }
 
-        public void OnDamage(Bullet bullet)
-        {
-            BombSystem.Instance.SwitchTarget(this);
-        }
+        public void OnDamage(Bullet bullet) => BombSystem.Instance.SwitchTarget(this);
     }
 }
