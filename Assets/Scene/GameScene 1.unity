@@ -739,7 +739,8 @@ MonoBehaviour:
   posX: 32
   negY: -33
   posY: 32
-  blocknum: 30
+  blocknum: 20
+  cullDistance: 15
 --- !u!483693784 &1313647570
 TilemapRenderer:
   m_ObjectHideFlags: 0

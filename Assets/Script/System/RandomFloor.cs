@@ -1,4 +1,5 @@
-﻿using BombShooting.System;
+﻿using System.Linq;
+using BombShooting.System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -15,10 +16,16 @@ public class RandomFloor : MonoBehaviour
     public int negY = -33;
     public int posY = 32;
     public int blocknum = 10;
+    public float cullDistance = 10;
+
+    private Transform[] players;
 
     private void Start()
     {
         var initVal = GameManager.Instance.remainTime.Value;
+        this.players = PlayerSystem.Instance.Players
+            .Select(p => p.transform)
+            .ToArray();
         GameManager.Instance.remainTime
             .Select(t => initVal - t)
             .Where(t => t % 5 == 0)
@@ -34,9 +41,16 @@ public class RandomFloor : MonoBehaviour
         {
             x = Random.Range(negX, posX);
             y = Random.Range(negY, posY);
-            if(cannotWalkMap.GetTile(new Vector3Int(x, y, 0)) != unWalkableTile)
+            var genPos = new Vector3Int(x, y, 0);
+            if(
+                this.players
+                .Select(t => Vector3.Distance(t.position, genPos))
+                .All(dis => dis >= this.cullDistance || dis <= 3)
+            )
+                continue;
+            if(cannotWalkMap.GetTile(genPos) != unWalkableTile)
             {
-                tilemap.SetTile(new Vector3Int(x, y, 0), Block);
+                tilemap.SetTile(genPos, Block);
                 i++;
             }
         }
