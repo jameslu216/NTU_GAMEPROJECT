@@ -40,8 +40,8 @@ namespace BombShooting.Control
                         .Aggregate((x, y) => x + y)
                         .normalized * player.status.MoveSpeed;
                     rb2d.velocity = velocity;
-                    if(velocity != Vector2.zero)
-                        player.face.Value = rb2d.velocity;
+                    if(velocity.magnitude > 0)
+                        player.face.Value = velocity.normalized;
                 })
                 .AddTo(this);
         }

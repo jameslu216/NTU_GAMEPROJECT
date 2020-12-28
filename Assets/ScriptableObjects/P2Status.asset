@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: P2Status
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  shootCooldown: 1
+  shootCooldown: 0.6
   bulletSpeed: 12

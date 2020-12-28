@@ -9,6 +9,9 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     private Transform target;
+    [Range(0, 1)]
+    [SerializeField]
+    private float smooth = 0.45f;
 
     private void Start()
     {
@@ -18,7 +21,7 @@ public class CameraFollow : MonoBehaviour
         transform
             .Follow(
                 target,
-                smooth : 0.45f,
+                smooth : this.smooth,
                 lockZ : true
             )
             .Subscribe()

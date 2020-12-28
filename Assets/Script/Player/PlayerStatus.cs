@@ -34,9 +34,12 @@ namespace BombShooting.Control
                 .Timer(TimeSpan.FromSeconds(3))
                 .Subscribe(_ => this.canControl = true);
         }
+
         public void RemoveBomb() => this.hasBomb.Value = false;
 
-        private void OnEnable()
+        private void OnEnable() => this.Reset();
+
+        public void Reset()
         {
             this.canControl = true;
             this.hasBomb = new BoolReactiveProperty(false);
