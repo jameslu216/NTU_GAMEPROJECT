@@ -18,9 +18,9 @@ namespace BombShooting.Control
         public bool canControl { get; private set; }
         private IDisposable controlRecover;
 
-        public float MoveSpeed => this.moveSpeed * (this.hasBomb.Value ? 1 : BombSystem.Instance.MoveSpeedBuff);
-        public float ShootCooldown => this.shootCooldown / Mathf.Max(Mathf.Epsilon, (this.hasBomb.Value ? 1 : BombSystem.Instance.ShootSpeedBuff));
-        public float BulletSpeed => this.bulletSpeed * (this.hasBomb.Value ? 1 : BombSystem.Instance.BulletSpeedBuff);
+        public float MoveSpeed => this.moveSpeed * (this.hasBomb.Value ? BombSystem.Instance.MoveSpeedBuff : 1);
+        public float ShootCooldown => this.shootCooldown / Mathf.Max(Mathf.Epsilon, (this.hasBomb.Value ? BombSystem.Instance.ShootSpeedBuff : 1));
+        public float BulletSpeed => this.bulletSpeed * (this.hasBomb.Value ? BombSystem.Instance.BulletSpeedBuff : 1);
 
         public void AddBomb()
         {
