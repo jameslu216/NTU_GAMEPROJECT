@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae482cc7998ce647b9a9e52a0b54d63, type: 3}
   m_Name: P2Status
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   shootCooldown: 0.6
   bulletSpeed: 12
