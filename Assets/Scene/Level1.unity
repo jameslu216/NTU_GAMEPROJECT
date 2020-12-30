@@ -492,7 +492,7 @@ MonoBehaviour:
   posX: 14
   negY: 18
   posY: -19
-  blocknum: 20
+  blocknum: 16
   cullDistance: 15
 --- !u!483693784 &230402125
 TilemapRenderer:
