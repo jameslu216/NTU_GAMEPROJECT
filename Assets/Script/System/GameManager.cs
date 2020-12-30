@@ -12,9 +12,15 @@ namespace BombShooting.System
     {
         [field : SerializeField]
         public LongReactiveProperty remainTime { get; private set; }
+        [SerializeField]
+        private string nextLevel;
+        [SerializeField]
+        private bool destroy;
         public UnityEvent OnGameStart;
         public UnityEvent OnGameEnd;
         public Team loser;
+
+        protected override bool shouldDestroy() => this.destroy;
 
         private void Start()
         {
@@ -39,7 +45,7 @@ namespace BombShooting.System
         {
             Debug.Log("Game end!");
             this.OnGameEnd.Invoke();
-            SceneManager.LoadScene("End");
+            SceneManager.LoadScene(this.nextLevel);
         }
     }
 }

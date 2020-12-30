@@ -16,8 +16,13 @@ namespace BombShooting.System
 
         [field : SerializeField]
         public float ShootSpeedBuff { get; private set; }
+        [SerializeField]
+        private bool destroyOnLoad;
 
         private Player target;
+
+        protected override bool shouldDestroy() => this.destroyOnLoad;
+
 
         void Start()
         {

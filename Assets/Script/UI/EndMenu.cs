@@ -26,7 +26,7 @@ public class EndMenu : MonoBehaviour
         {
             this.black
                 .DOColor(Color.black, 0.3f)
-                .OnComplete(() => SceneManager.LoadScene("GameScene 1"));
+                .OnComplete(() => SceneManager.LoadScene("Level1"));
         });
         this.exit.onClick.AddListener(Application.Quit);
     }

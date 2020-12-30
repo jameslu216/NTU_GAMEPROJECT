@@ -11,6 +11,12 @@ namespace BombShooting.System
         private List<Player> players;
         public IEnumerable<Player> Players => this.players.AsReadOnly();
 
+        [SerializeField]
+        private bool destroyOnLoad;
+
+        protected override bool shouldDestroy() => this.destroyOnLoad;
+
+
         private void Start()
         {
             this.players = new List<Player>(GameObject.FindObjectsOfType<Player>());
